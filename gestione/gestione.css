@@ -1,0 +1,192 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* PAGINA */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #fff8f2;
+  color: #49352f;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* PULSANTI PRINCIPALI */
+body > div:first-of-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 10px auto 40px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: #bd6489;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(189, 100, 137, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #a64c73;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(189, 100, 137, 0.3);
+}
+
+/* FORM E CARD */
+form {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 22px;
+}
+
+.card {
+  padding: 25px 30px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #f1e2e5;
+  border-left: 6px solid #d88eaa;
+  box-shadow: 0 5px 18px rgba(80, 50, 40, 0.08);
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(80, 50, 40, 0.13);
+}
+
+/* INTESTAZIONE CARD */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #f3e4e9;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  color: #a64c73;
+  font-size: 21px;
+}
+
+/* COSTO E PULSANTE ELIMINA */
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-actions h4 {
+  color: #a64c73;
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.card-actions button {
+  position: static;
+  flex-shrink: 0;
+  background: #fce8e8;
+  color: #c34d55;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card-actions button:hover {
+  background: #c34d55;
+  color: white;
+}
+
+.card-actions button:active {
+  transform: scale(0.96);
+}
+
+/* INFORMAZIONI GELATO */
+p {
+  font-size: 16px;
+  color: #68564f;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+/* TOTALE */
+.totale {
+  max-width: 700px;
+  margin: 35px auto;
+  padding: 22px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #f1e2e5;
+  box-shadow: 0 5px 18px rgba(80, 50, 40, 0.08);
+  text-align: center;
+}
+
+.totale h2 {
+  color: #a64c73;
+  font-size: 26px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  body {
+    padding: 25px 15px;
+  }
+
+  body > div:first-of-type {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 35px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .card {
+    padding: 22px 18px;
+  }
+
+  .card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .card-header h3 {
+    font-size: 19px;
+  }
+
+  .card-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .card-actions h4 {
+    font-size: 15px;
+  }
+
+  .totale {
+    padding: 18px;
+  }
+
+  .totale h2 {
+    font-size: 22px;
+  }
+}
