@@ -8,8 +8,8 @@
 /* PAGINA */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #fff8f2;
-  color: #49352f;
+  background: #fff8f0;
+  color: #49352d;
   min-height: 100vh;
   padding: 40px 20px;
 }
@@ -27,19 +27,23 @@ body > div:first-of-type {
   display: inline-block;
   text-decoration: none;
   color: white;
-  background: #bd6489;
+  background: #d98268;
   padding: 14px 28px;
-  border-radius: 12px;
+  border-radius: 30px;
   font-size: 16px;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(189, 100, 137, 0.2);
-  transition: all 0.2s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(217, 130, 104, 0.25);
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background: #a64c73;
+  background: #b9654d;
   transform: translateY(-3px);
-  box-shadow: 0 7px 15px rgba(189, 100, 137, 0.3);
+  box-shadow: 0 7px 18px rgba(185, 101, 77, 0.3);
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 /* FORM E CARD */
@@ -50,18 +54,18 @@ form {
 }
 
 .card {
-  padding: 25px 30px;
+  padding: 30px;
   background: white;
-  border-radius: 16px;
-  border: 1px solid #f1e2e5;
-  border-left: 6px solid #d88eaa;
-  box-shadow: 0 5px 18px rgba(80, 50, 40, 0.08);
+  border-radius: 18px;
+  border: 1px solid #f5dfd2;
+  border-left: 6px solid #d98268;
+  box-shadow: 0 8px 25px rgba(100, 65, 45, 0.1);
   transition: all 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(80, 50, 40, 0.13);
+  box-shadow: 0 12px 30px rgba(100, 65, 45, 0.15);
 }
 
 /* INTESTAZIONE CARD */
@@ -70,13 +74,13 @@ form {
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  border-bottom: 1px solid #f3e4e9;
+  border-bottom: 2px solid #f5dfd2;
   padding-bottom: 15px;
   margin-bottom: 15px;
 }
 
 .card-header h3 {
-  color: #a64c73;
+  color: #a65d45;
   font-size: 21px;
 }
 
@@ -88,7 +92,7 @@ form {
 }
 
 .card-actions h4 {
-  color: #a64c73;
+  color: #a65d45;
   font-size: 17px;
   font-weight: 700;
   white-space: nowrap;
@@ -97,19 +101,19 @@ form {
 .card-actions button {
   position: static;
   flex-shrink: 0;
-  background: #fce8e8;
-  color: #c34d55;
+  background: #fcece8;
+  color: #d96868;
   border: none;
-  border-radius: 8px;
-  padding: 9px 16px;
+  border-radius: 10px;
+  padding: 10px 18px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .card-actions button:hover {
-  background: #c34d55;
+  background: #d96868;
   color: white;
 }
 
@@ -120,7 +124,7 @@ form {
 /* INFORMAZIONI GELATO */
 p {
   font-size: 16px;
-  color: #68564f;
+  color: #754b3b;
   margin: 12px 0;
   line-height: 1.5;
 }
@@ -129,16 +133,16 @@ p {
 .totale {
   max-width: 700px;
   margin: 35px auto;
-  padding: 22px;
+  padding: 30px;
   background: white;
-  border-radius: 16px;
-  border: 1px solid #f1e2e5;
-  box-shadow: 0 5px 18px rgba(80, 50, 40, 0.08);
+  border-radius: 18px;
+  border: 1px solid #f5dfd2;
+  box-shadow: 0 8px 25px rgba(100, 65, 45, 0.1);
   text-align: center;
 }
 
 .totale h2 {
-  color: #a64c73;
+  color: #a65d45;
   font-size: 26px;
 }
 
@@ -161,7 +165,7 @@ p {
   }
 
   .card {
-    padding: 22px 18px;
+    padding: 20px;
   }
 
   .card-header {
@@ -183,7 +187,7 @@ p {
   }
 
   .totale {
-    padding: 18px;
+    padding: 20px;
   }
 
   .totale h2 {

@@ -22,6 +22,11 @@ function getCarrelloLength(){
     return filesize(__DIR__ . "/carrello.json");
 }
 
+function resetCarrello(){
+    $file = getCarrello("w+");
+    fclose($file);
+}
+
 function getGusti(){
     $file = fopen(__DIR__ . "/gusti.json", "r");
     if($file == null || filesize(__DIR__ . "/gusti.json") == 0){
@@ -78,5 +83,25 @@ function resetGusti(){
         "Limone" => 5.0
     )));
     fclose($file);
+}
+
+function generaScontrino($totale) {
+    $data = date("Y-m-d H:i:s");
+    $file = fopen(__DIR__ . "/../scontrini/scontrino_". $data . ".json", "x");
+    $fileCarrello = getCarrello("r");
+    $carrello = json_decode(fread($fileCarrello, getCarrelloLength()), true);
+    fclose($fileCarrello);
+    $carrello[] = array("data"=>$data, "totale"=>$totale);
+    fwrite($file, json_encode($carrello));
+    fclose($file);
+}
+
+function resetScontrini(){
+    $path = __DIR__ . "/../scontrini/scontrino_*.json";
+    $files = glob($path);
+
+    foreach($files as $file){
+        unlink($file);
+    }    
 }
 ?>

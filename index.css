@@ -1,48 +1,49 @@
 /* ==========================================================================
-   STILE GENERALE & TEMA COLORI (Pastello Gelateria)
+   STILE GENERALE & TEMA COLORI (Gelateria)
    ========================================================================== */
 :root {
-    --bg-color: #fcf8f2;        /* Crema chiarissimo */
-    --card-bg: #ffffff;         /* Bianco pulito */
-    --primary: #ff8b94;         /* Rosa fragola/gelato */
-    --secondary: #ffaaa5;       /* Rosa pesca */
-    --text-main: #4a3e3d;       /* Marrone cioccolato scuro per i testi */
-    --text-muted: #8b7e7d;      /* Marrone soft */
-    --border-color: #ffd3b6;    /* Rosa/arancio chiarissimo per i bordi */
-    --radius: 12px;             /* Bordi arrotondati morbidi */
+  --bg-color: #fff8f0; /* Crema caldo */
+  --card-bg: #ffffff; /* Bianco pulito */
+  --primary: #d98268; /* Marrone/Arancio caldo coordinato */
+  --primary-hover: #b9654d; /* Versione hover scura */
+  --text-main: #49352d; /* Marrone cioccolato scuro */
+  --text-muted: #754b3b; /* Marrone soft */
+  --border-color: #f5dfd2; /* Rosa/Crema chiaro per i bordi */
+  --radius: 18px; /* Bordi arrotondati coerenti */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    line-height: 1.6;
-    padding: 40px 20px;
-    max-width: 500px;
-    margin: 0 auto;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 40px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* ==========================================================================
    STRUTTURA DEI FORM (Card Layout)
    ========================================================================== */
 form {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: var(--radius);
-    box-shadow: 0 8px 24px rgba(74, 62, 61, 0.06);
-    border: 1px solid var(--border-color);
-    margin-bottom: 25px;
-}
-
-/* Titoli e testo descrittivo simulato dai tag br/testo libero */
-body, form {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-/* Customizzazione per il testo "Scegli i gusti", "Seleziona il supporto" ecc. */
-form, body {
-    color: var(--text-main);
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 25px rgba(100, 65, 45, 0.1);
+  border: 1px solid var(--border-color);
+  margin-bottom: 25px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* ==========================================================================
@@ -50,74 +51,77 @@ form, body {
    ========================================================================== */
 input[type="number"],
 select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    margin-bottom: 18px;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    background-color: #fff;
-    color: var(--text-main);
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  background-color: #fff5ee;
+  color: var(--text-main);
+  font-size: 16px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 input[type="number"]:focus,
 select:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(255, 139, 148, 0.2);
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(217, 130, 104, 0.2);
 }
 
 label {
-    display: block;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-top: 10px;
+  display: block;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 10px;
 }
 
 /* ==========================================================================
-   RADIO E CHECKBOX (Allineamento e spaziatura)
+   RADIO E CHECKBOX
    ========================================================================== */
 input[type="radio"],
 input[type="checkbox"] {
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    accent-color: var(--primary); /* Cambia il colore del pallino/spunta */
-    transform: scale(1.15);
-    vertical-align: middle;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  accent-color: var(--primary);
+  transform: scale(1.15);
+  vertical-align: middle;
 }
 
 /* ==========================================================================
    BOTTONI
    ========================================================================== */
 button[type="submit"] {
-    display: inline-block;
-    width: 100%;
-    background-color: var(--primary);
-    color: white;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-    box-shadow: 0 4px 12px rgba(255, 139, 148, 0.3);
-    margin-top: 15px;
+  display: inline-block;
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(217, 130, 104, 0.25);
+  margin-top: 15px;
 }
 
 button[type="submit"]:hover {
-    background-color: #ff7680;
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(185, 101, 77, 0.3);
 }
 
 button[type="submit"]:active {
-    transform: scale(0.98);
+  transform: scale(0.97);
 }
 
-/* Nasconde i <br> di troppo per pulire il layout strutturato con i margini CSS */
+/* Pulizia layout */
 form br {
-    display: none;
+  display: none;
 }

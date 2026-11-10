@@ -1,142 +1,161 @@
-
 /* Reset generale */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Corpo della pagina */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #fff8f0;
-    color: #49352d;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 15px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #fff8f0;
+  color: #49352d;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 15px;
 }
 
 /* Titolo principale */
 h1 {
-    font-size: 2.5rem;
-    color: #a65d45;
-    margin-bottom: 25px;
-    text-align: center;
+  font-size: 2.5rem;
+  color: #a65d45;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
-/* Riepilogo ordine */
+/* Riepilogo ordine e sezioni contenitore */
 body > div {
-    background: white;
-    width: 100%;
-    max-width: 500px;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(100, 65, 45, 0.10);
-    margin-bottom: 25px;
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(100, 65, 45, 0.1);
+  margin-bottom: 25px;
 }
 
 /* Titolo riepilogo */
 h2 {
-    color: #a65d45;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #f5dfd2;
-    padding-bottom: 12px;
+  color: #a65d45;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f5dfd2;
+  padding-bottom: 12px;
 }
 
 /* Lista prodotti */
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 li {
-    background: #fff5ee;
-    padding: 15px;
-    margin-bottom: 8px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: #754b3b;
+  background: #fff5ee;
+  padding: 15px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #754b3b;
 }
 
 /* Prezzi */
 ul + p {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 2px solid #f5dfd2;
-    text-align: right;
-    font-size: 1.3rem;
-    color: #a65d45;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px solid #f5dfd2;
+  text-align: right;
+  font-size: 1.3rem;
+  color: #a65d45;
 }
 
 /* Form */
 form {
-    text-align: center;
-    margin: 5px;
+  text-align: center;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Campi di input numerici */
+input[type="number"] {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #f5dfd2;
+  border-radius: 10px;
+  outline: none;
+  background: #fff5ee;
+  color: #49352d;
+  width: 130px;
+  margin: 0 10px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #d98268;
 }
 
 /* Pulsanti */
 button {
-    background: #d98268;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    min-width: 190px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(217, 130, 104, 0.25);
+  background: #d98268;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  min-width: 190px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(217, 130, 104, 0.25);
+  margin-top: 10px;
 }
 
 /* Effetto hover */
 button:hover {
-    background: #b9654d;
-    transform: translateY(-3px);
-    box-shadow: 0 7px 18px rgba(185, 101, 77, 0.3);
+  background: #b9654d;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(185, 101, 77, 0.3);
 }
 
 /* Effetto click */
 button:active {
-    transform: scale(0.97);
+  transform: scale(0.97);
 }
 
 /* Messaggio pagamento riuscito */
 body > p {
-    background: white;
-    color: #43865b;
-    padding: 30px;
-    border-radius: 15px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    margin-bottom: 25px;
+  background: white;
+  color: #43865b;
+  padding: 30px;
+  border-radius: 15px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 25px;
 }
 
 /* Responsive smartphone */
 @media (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-    }
+  h1 {
+    font-size: 2rem;
+  }
 
-    body > div {
-        padding: 20px;
-    }
+  body > div {
+    padding: 20px;
+  }
 
-    /* Pulsanti affiancati anche su schermi piccoli */
-    button {
-        min-width: 0;
-        width: 100%;
-        padding: 13px 15px;
-        font-size: 0.9rem;
-    }
+  button {
+    min-width: 0;
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 0.9rem;
+  }
 
-    form {
-        flex: 1;
-        min-width: 0;
-    }
+  input[type="number"] {
+    width: 100%;
+    margin: 10px 0;
+  }
 }

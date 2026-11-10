@@ -9,6 +9,15 @@
      <?php include __DIR__ . "/utils/utils.php"; ?>
 </head>
 <body>
+
+    <?php 
+        if(isset($_POST["reset"]) && $_POST["reset"]){
+            resetGusti();
+            resetCarrello();
+            resetScontrini();
+        }
+    ?>
+
     <form method="post">
         <input type="number" name="NPalline" min=1 max=3 value=<?php 
         if(!isset($_POST["NPalline"]))
@@ -44,12 +53,6 @@
             
                 <option value="<?php echo $gusto; ?>"><?php echo $gusto; ?> - <?php echo $quantita; ?></option>
             <?php endif; endforeach; ?>
-            <!--
-                <option value="Vaniglia">Vaniglia</option>
-                <option value="Cioccolato">Cioccolato</option>
-                <option value="Menta">Menta</option>
-                <option value="Limone">Limone</option>
-                -->
             </select>
         <br>
 
@@ -75,6 +78,10 @@
 
         </form>
     <?php endif ?>
+
+    <form method="get" action="/riepilogo/riepilogo.php">
+        <button type="submit">Riepilogo Finale</button>
+    </form>
 
 </body>
 </html>
