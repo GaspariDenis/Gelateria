@@ -6,10 +6,16 @@
     <title>Aggiungi Gelato</title>
 
      <link rel="stylesheet" href="index.css">
+     <?php include __DIR__ . "/utils/utils.php"; ?>
 </head>
 <body>
     <form method="post">
-        <input type="number" name="NPalline" min=1 max=3 value=<?php echo $_POST["NPalline"];?>>
+        <input type="number" name="NPalline" min=1 max=3 value=<?php 
+        if(!isset($_POST["NPalline"]))
+            echo 0;
+        else
+            echo $_POST["NPalline"];
+        ?>>
         <button type="submit">Conferma</button>
     </form>
 
@@ -28,10 +34,22 @@
 
             <label>Pallina <?php echo $i; ?></label>
             <select name="gusti[]">
+            
+            <?php
+            $gustiInFile = getGusti();
+            $gusti = json_decode($gustiInFile, true);
+            foreach($gusti as $gusto => $quantita):
+                if($quantita >= 0.11):
+            ?>
+            
+                <option value="<?php echo $gusto; ?>"><?php echo $gusto; ?> - <?php echo $quantita; ?></option>
+            <?php endif; endforeach; ?>
+            <!--
                 <option value="Vaniglia">Vaniglia</option>
                 <option value="Cioccolato">Cioccolato</option>
                 <option value="Menta">Menta</option>
                 <option value="Limone">Limone</option>
+                -->
             </select>
         <br>
 

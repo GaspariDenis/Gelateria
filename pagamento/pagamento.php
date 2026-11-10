@@ -4,21 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento</title>
+    <link rel="stylesheet" href="pagamento.css">
+    <?php 
+        include __DIR__ . "/../utils/utils.php";
+    ?>
 </head>
 <body>
     <?php 
-        $file = fopen(__DIR__ . "../gestione/carrello.json","r");
+        $file = getCarrello("r");
 
         if($file == null){
             echo "Errore";
             return;
         }
 
-        if(filesize(__DIR__ . "../gestione/carrello.json") > 0)
-            $_carrello = json_decode(fread($file, filesize(__DIR__ . "/carrello.json")), true);
+        if(getCarrelloLength() > 0)
+            $_carrello = json_decode(fread($file, getCarrelloLength()), true);
         else
             $_carrello = array();
         fclose($file);
     ?>
+
+    <?php 
+        if(isset($_POST["pagamento"]) && $_POST["pagamento"] == "avvenuto"): ?>
+
+        <?php 
+            $file = getCarrello("w");
+            fwrite($file, json_encode(array()));
+            fclose($file);
+        ?>
+
+        <p>Pagamento avvenuto con successo!</p>
+
+        <form method="get" action="/index.php">
+            <button type="submit">Torna alla home</button>
+        </form>
+
+    <?php else: ?>
+
+        <h1>Pagamento</h1>
+
+    <div>
+        <h2>Riepilogo Ordine</h2>
+        <ul>
+            <?php 
+                $totale = 0;
+                $i = 0;
+                foreach($_carrello as $prodotto): ?>
+                    <li>Gelato numero <?php echo $i + 1 ?></li>
+                    Prezzo: <?php echo getPrezzo($prodotto); ?>
+                    
+                    <?php 
+                        $totale += getPrezzo($prodotto);
+                        $i++; 
+                    ?>
+            <?php endforeach; ?>
+            
+        </ul>
+        <p><strong>Totale: <?php echo $totale; ?>€</strong></p>
+    </div>
+
+    <form method="get" action="/gestione/gestione.php">
+        <button type="submit">Torna all'ordine</button>
+    </form>
+    <form method="post" action="/pagamento/pagamento.php">
+        <input type="hidden" name="pagamento" value="avvenuto">
+        <button type="submit">Procedi al pagamento</button>
+    </form>
+
+    <?php endif; ?>
 </body>
 </html>

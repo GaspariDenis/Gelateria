@@ -5,44 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="gestione.css">
     <title>Gestione</title>
+    <?php 
+        include __DIR__ . "/../utils/utils.php";
+    ?>
 </head>
 <body>
-
-    <?php
-        function find(string $str, array $array){
-            foreach($array as $value){
-                if($value == $str)
-                    return true;
-            }
-            return false;
-        }
-    ?>
-
     <?php 
-        $file = fopen(__DIR__ . "/carrello.json","r+");
+        $file = getCarrello("r+");
 
         if($file == null){
             echo "Errore";
             return;
         }
 
-        if(filesize(__DIR__ . "/carrello.json") > 0)
-            $_carrello = json_decode(fread($file, filesize(__DIR__ . "/carrello.json")), true);
+        if(getCarrelloLength() > 0)
+            $_carrello = json_decode(fread($file, getCarrelloLength()), true);
         else
             $_carrello = array();
         fclose($file);
 
         if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["delete"])){
+            foreach($_carrello[$_GET["delete"]]["gusti"] as $gusto){
+                addGelato($gusto);
+            }
             unset($_carrello[$_GET["delete"]]);
             $_carrello = array_values($_carrello);
         }
 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
-            $array = array("gusti"=>$_POST["gusti"], "supporto"=> $_POST["supporto"], "toppings"=>$_POST["toppings"]);
+            $array = array("gusti"=>$_POST["gusti"], "supporto"=> $_POST["supporto"]);
+            if(isset($_POST["toppings"]))
+                $array["toppings"] = $_POST["toppings"];
             $_carrello[] = $array;
+            foreach($_POST["gusti"] as $gusto){
+                removeGelato($gusto);
+            }
         }
 
-        $file = fopen(__DIR__ . "/carrello.json", "w");
+        $file = getCarrello("w");
 
         fwrite($file, json_encode($_carrello));
         fclose($file);
@@ -75,8 +75,8 @@
                     <h3>Gelato numero <?php echo $i + 1 ?></h3>
                     <div class="card-actions">
                         <h4>Costo: <?php 
-                            $totale += 1.20 * count($item["gusti"]) + (($item["supporto"] == "Cono") ? 0.10 : 0.20) + 0.5 * count($item["toppings"]);
-                            echo 1.20 * count($item["gusti"]) + (($item["supporto"] == "Cono") ? 0.10 : 0.20) + 0.5 * count($item["toppings"]);
+                            $totale += getPrezzo($item);
+                            echo getPrezzo($item);
                         ?></h4>
                         <button type="submit">Elimina</button>
                     </div>
@@ -86,10 +86,14 @@
                 <p>Toppings: 
                     <?php 
                         $toppings = array();
-                        if(find("panna", $item["toppings"])) $toppings[] = "Panna";
-                        if(find("caramello", $item["toppings"])) $toppings[] = "Caramello";
-                        if(find("cioccolato", $item["toppings"])) $toppings[] = "Cioccolato";
-                        echo implode(", ", $toppings);
+                        if($item["toppings"] != null){
+                            if(find("panna", $item["toppings"])) $toppings[] = "Panna";
+                            if(find("caramello", $item["toppings"])) $toppings[] = "Caramello";
+                            if(find("cioccolato", $item["toppings"])) $toppings[] = "Cioccolato";
+                            echo implode(", ", $toppings);
+                        }else{
+                            echo "Nessuno";
+                        }
                     ?>
                 </p>
             </div>
