@@ -8,11 +8,17 @@
     <?php include  __DIR__ . "/../utils/utils.php"; ?>
 </head>
 <body>
-    Elenco scontrini: <br>
     <?php 
         $totaleIncassi = 0;
         $path = __DIR__ . "/../scontrini/scontrino_*.json";
         $files = glob($path);
+        $NClienti = count($files);
+        $NGelati = 0;
+        ?>
+
+        Elenco scontrini(<?php echo $NClienti ?> Clienti): <br>
+
+    <?php
         if(empty($files)){
             echo "Nessuno scontrino presente.";
         }else
@@ -30,9 +36,10 @@
 
         unset($content[count($content) - 1]);
         $content = array_values($content);
-
+        
         $i = 0;
         foreach($content as $item): ?>
+            <?php $NGelati++; ?>
             <div class="card">
                 <div class="card-header">
                     <h3>Gelato numero <?php echo $i + 1 ?></h3>
@@ -74,7 +81,7 @@
                 }else if($quantita == $minquantita){
                     $piuVenduto[] = $gusto;
                 }
-                echo $gusto . ": " . $quantita * 100 . " grammi<br>";
+                echo $gusto . ": " . $quantita * 1000 . " grammi<br>";
             }
         ?>
         <br>
@@ -85,6 +92,7 @@
             }
         ?>
         <br>
+        <h3>Totale Gelati Venduti: <?php echo $NGelati; ?></h3> <br>
         <h3>Totale Incassi: <?php echo $totaleIncassi; ?></h3>
     </div>
 

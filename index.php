@@ -51,7 +51,7 @@
                 if($quantita >= 0.11):
             ?>
             
-                <option value="<?php echo $gusto; ?>"><?php echo $gusto; ?> - <?php echo $quantita; ?></option>
+                <option value="<?php echo $gusto; ?>"><?php echo $gusto; ?> - <?php echo $quantita * 1000; ?></option>
             <?php endif; endforeach; ?>
             </select>
         <br>
